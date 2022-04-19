@@ -15,7 +15,7 @@ const server = app.listen(8080, ()=>{
             app.get('/productos', (req, res) =>{
                 fs.readFile("./d2Text.json" , "utf-8", (err, data)=>{
                     if(err){
-                        console.log("Error!!");
+                        console.log("Error");
                     }else{
                         let newArr = JSON.parse(data)
                         res.send(newArr)
@@ -26,7 +26,7 @@ const server = app.listen(8080, ()=>{
             app.get('/random', (req, res) =>{
                 fs.readFile("./d2Text.json" , "utf-8", (err, data)=>{
                     if(err){
-                        console.log("Error!!");
+                        console.log("Error");
                     }else{
                         let newArray = JSON.parse(data)
                         let random = newArray[Math.floor(Math.random() * newArray.length)];
@@ -165,7 +165,7 @@ function numero(){
 }
 
 //archivos.save({title:"remera", price:2550, img:"buzo.jpg", id: numero()})
-//archivos.getById(60)
+//archivos.getById()
 //archivos.getAll()
 //archivos. deleteById()
 //archivos.deleteAll()
