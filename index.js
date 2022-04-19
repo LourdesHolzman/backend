@@ -4,9 +4,7 @@ const path = require("path")
 
 const express = require("express")
 const app = express()
-const server = app.listen(8080, ()=>{
-    console.log(`Servidor http escuchando en el puerto ${server.address().port}`);
-})
+const PORT = process.env.PORT || 8080
 
             app.get('/', (req, res) =>{
                 res.send(`<h1 style="color: orange">Hola Mundo</h1>`)
@@ -34,6 +32,10 @@ const server = app.listen(8080, ()=>{
                         res.send(random)
                     }
             })
+        })
+
+        app.listen(PORT, () => {
+            console.log("Server run en port " + PORT);
         })
 
 class Contenedor {
