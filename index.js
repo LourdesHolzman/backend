@@ -1,43 +1,5 @@
 const fs = require("fs")
 
-const path = require("path")
-
-const express = require("express")
-const app = express()
-const PORT = process.env.PORT || 8080
-
-            app.get('/', (req, res) =>{
-                res.send(`<h1 style="color: orange">Hola Mundo</h1>`)
-            })
-
-            app.get('/productos', (req, res) =>{
-                fs.readFile("./d2Text.json" , "utf-8", (err, data)=>{
-                    if(err){
-                        console.log("Error");
-                    }else{
-                        let newArr = JSON.parse(data)
-                        res.send(newArr)
-                    }
-                })
-            })
-
-            app.get('/random', (req, res) =>{
-                fs.readFile("./d2Text.json" , "utf-8", (err, data)=>{
-                    if(err){
-                        console.log("Error");
-                    }else{
-                        let newArray = JSON.parse(data)
-                        let random = newArray[Math.floor(Math.random() * newArray.length)];
-                        console.log(Math.floor(Math.random() * newArray.length));
-                        res.send(random)
-                    }
-            })
-        })
-
-        app.listen(PORT, () => {
-            console.log("Server run en port " + PORT);
-        })
-
 class Contenedor {
     constructor(nombre){
         this.nombre = nombre;
@@ -171,3 +133,5 @@ function numero(){
 //archivos.getAll()
 //archivos. deleteById()
 //archivos.deleteAll()
+
+module.exports= Contenedor
